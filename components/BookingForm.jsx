@@ -19,7 +19,7 @@ const INITIAL_FORM_DATA = {
 
 /** Shared class strings so every control looks identical. */
 const fieldClass =
-  "w-full rounded-lg border bg-white px-3.5 py-2.5 text-sm text-ink-900 outline-none transition-colors placeholder:text-stone-400 focus:border-brand-600";
+  "rounded-lg border bg-white px-3.5 py-2.5 text-sm text-ink-900 outline-none transition-colors placeholder:text-stone-400 focus:border-brand-600";
 const labelClass = "block text-sm font-medium text-ink-900";
 
 function borderClass(hasError) {
@@ -154,7 +154,7 @@ export default function BookingForm() {
           placeholder="e.g. Sanjay Chary"
           aria-invalid={Boolean(errors.fullName)}
           aria-describedby={errors.fullName ? "fullName-error" : undefined}
-          className={`mt-1.5 ${fieldClass} ${borderClass(errors.fullName)}`}
+          className={`mt-1.5 w-full ${fieldClass} ${borderClass(errors.fullName)}`}
         />
         <FieldError id="fullName-error" message={errors.fullName} />
       </div>
@@ -193,7 +193,9 @@ export default function BookingForm() {
             aria-describedby={
               errors.contactNumber ? "contactNumber-error" : undefined
             }
-            className={`${fieldClass} ${borderClass(errors.contactNumber)}`}
+            className={`min-w-0 flex-1 ${fieldClass} ${borderClass(
+              errors.contactNumber
+            )}`}
           />
         </div>
         <FieldError id="contactNumber-error" message={errors.contactNumber} />
@@ -214,7 +216,7 @@ export default function BookingForm() {
           placeholder="you@example.com"
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? "email-error" : undefined}
-          className={`mt-1.5 ${fieldClass} ${borderClass(errors.email)}`}
+          className={`mt-1.5 w-full ${fieldClass} ${borderClass(errors.email)}`}
         />
         <FieldError id="email-error" message={errors.email} />
       </div>
@@ -234,7 +236,7 @@ export default function BookingForm() {
           min={todayAsIsoDate()}
           aria-invalid={Boolean(errors.dateOfTravel)}
           aria-describedby={errors.dateOfTravel ? "dateOfTravel-error" : undefined}
-          className={`mt-1.5 ${fieldClass} ${borderClass(errors.dateOfTravel)}`}
+          className={`mt-1.5 w-full ${fieldClass} ${borderClass(errors.dateOfTravel)}`}
         />
         <FieldError id="dateOfTravel-error" message={errors.dateOfTravel} />
       </div>
@@ -257,7 +259,7 @@ export default function BookingForm() {
             aria-describedby={
               errors.numberOfPeople ? "numberOfPeople-error" : undefined
             }
-            className={`mt-1.5 ${fieldClass} ${borderClass(errors.numberOfPeople)}`}
+            className={`mt-1.5 w-full ${fieldClass} ${borderClass(errors.numberOfPeople)}`}
           />
           <FieldError id="numberOfPeople-error" message={errors.numberOfPeople} />
         </div>
@@ -279,7 +281,7 @@ export default function BookingForm() {
             aria-describedby={
               errors.numberOfChildren ? "numberOfChildren-error" : undefined
             }
-            className={`mt-1.5 ${fieldClass} ${borderClass(
+            className={`mt-1.5 w-full ${fieldClass} ${borderClass(
               errors.numberOfChildren
             )}`}
           />
@@ -302,7 +304,7 @@ export default function BookingForm() {
           onChange={handleChange}
           aria-invalid={Boolean(errors.hotelCategory)}
           aria-describedby={errors.hotelCategory ? "hotelCategory-error" : undefined}
-          className={`mt-1.5 ${fieldClass} ${borderClass(errors.hotelCategory)}`}
+          className={`mt-1.5 w-full ${fieldClass} ${borderClass(errors.hotelCategory)}`}
         >
           <option value="">Select a category</option>
           {HOTEL_CATEGORIES.map((category) => (
