@@ -42,3 +42,7 @@ next-env.d.ts
 
 # allow the placeholder template to be committed
 !.env.example
+
+# Next.js 16 regenerates these AI-assistant guide files on build
+AGENTS.md
+CLAUDE.md
