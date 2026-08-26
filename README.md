@@ -28,12 +28,6 @@ Built as Phase 1 of the Travel Unbounded Full Stack Web Developer assignment.
 > **Router used: the App Router** (`app/` directory), as required to be stated in the
 > assignment brief.
 
-**Why this stack.** Next.js API routes keep the frontend and backend in one
-application, so there is a single deployment, no CORS layer and one place for
-environment variables. The assignment lists this as the recommended approach, and
-MongoDB Atlas pairs naturally with it.
-
----
 
 ## Features
 
@@ -104,6 +98,10 @@ Create `.env.local` in the project root (see `.env.example`):
 
 ```
 MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/travel-unbounded?retryWrites=true&w=majority
+
+
+mongodb+srv://travel_unbounded_user:mMTYSNcz1VmlyIcE@cluster0.3aaqbuq.mongodb.net/travel-unbounded?appName=Cluster0
+
 ```
 
 Then:
@@ -244,31 +242,6 @@ recorded rather than blocked on.
    optional bonus. In production this would expose personal data and belongs behind
    admin authentication — which is exactly what Phase 2 of the brief specifies.
 
-### Not built (and why)
 
-- **Destination detail pages** — not requested anywhere in the brief.
-- **An `/admin` page** — described as an optional nice-to-have; the `GET` endpoint that
-  would power it is implemented, the page itself was skipped to keep the required
-  scope correct and well-tested.
-- **Everything in Phase 2** (AI chatbot, itinerary generation, authenticated admin
-  dashboard) — the brief states it is explicitly out of scope for Phase 1.
 
----
 
-## Testing Performed
-
-| Scenario | Expected | Result |
-| --- | --- | --- |
-| Valid enquiry | `201`, record created, success UI | Pass |
-| Empty payload | `400` with every field error | Pass |
-| Missing name | `400` | Pass |
-| Invalid email | `400` | Pass |
-| Past travel date | `400` | Pass |
-| Today's date | `400` (must be future) | Pass |
-| Zero people | `400` | Pass |
-| Negative children | `400` | Pass |
-| Invalid hotel category | `400` | Pass |
-| Malformed JSON body | `400`, no crash | Pass |
-| Unknown fields in body | Ignored, not persisted | Pass |
-| `GET /api/enquiry` | `200`, newest first | Pass |
-| Responsive at 375 / 768 / 1024 / 1440 | No horizontal scroll | Pass |
