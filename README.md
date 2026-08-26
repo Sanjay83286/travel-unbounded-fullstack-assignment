@@ -7,7 +7,7 @@ back to the visitor in the UI.
 
 Built as Phase 1 of the Travel Unbounded Full Stack Web Developer assignment.
 
-- **Live demo:** _(add your Vercel URL here)_
+- **Live demo:** https://travel-unbounded-fullstack-assignme.vercel.app
 - **Repository:** https://github.com/Sanjay83286/travel-unbounded-fullstack-assignment
 
 ---

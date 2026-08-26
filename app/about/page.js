@@ -4,7 +4,8 @@ import Link from "next/link";
 import { OFFICES, WHY_CHOOSE_US } from "@/data/company";
 
 export const metadata = {
-  title: "About Travel Unbounded",
+  // Absolute so the layout template does not produce "… | Travel Unbounded" twice.
+  title: { absolute: "About Travel Unbounded" },
   description:
     "Headquartered in Bangalore with offices in Kochi and Nairobi, Travel Unbounded designs trips that blend comfort, culture and raw nature — all personally experienced by our team.",
 };
